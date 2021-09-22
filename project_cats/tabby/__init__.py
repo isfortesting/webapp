@@ -4,12 +4,15 @@ from flask import Flask, render_template, request, jsonify
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "something strange"
 
-@app.route('/<data>')
-def test(data: str):
+from project_cats.tabby.collars import collars
+app.register_blueprint(collars, url_prefix='/auth')
 
-    information = ["words", "test"]
-
-    return render_template('index.html', data=information)
+# @app.route('/<data>')
+# def test(data: str):
+#
+#     information = ["words", "test"]
+#
+#     return render_template('index.html', data=information)
 
 @app.route('/')
 def index():
