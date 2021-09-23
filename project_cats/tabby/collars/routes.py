@@ -4,11 +4,8 @@ from . import collars
 
 
 
-@collars.route('/register', methods=['GET'])
+@collars.route('/register', methods=['GET', 'POST'])
 def register_splash():
     return render_template("users/register.html")
 
 
-@collars.route('/register/<user:str>', methods=['POST'])
-def register_user(user:str):
-    pass
